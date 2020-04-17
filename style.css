@@ -1,0 +1,61 @@
+.game {
+    display: flex;
+    flex-direction: column;
+    height: 95vmin;
+}
+
+.game__header {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.game__title {
+    flex: 2;
+    border: 1px solid black;
+}
+
+.game__player {
+    flex: 1;
+    border: 1px solid black;
+}
+
+.game__score {
+    flex: 1;
+    border: 1px solid black;
+}
+
+.game__container {
+    flex: 6;
+    position: relative;
+}
+
+.game__board {
+    position: absolute;
+    top: 50%; 
+    left: 50%;
+    transform: translate(-50%,-50%);
+    display: grid;
+    grid-template-rows: 20vmin 20vmin 20vmin;
+    grid-template-columns: 20vmin 20vmin 20vmin;
+    border: 1px solid black;
+    text-align: center;
+    font-size: 18vmin;
+}
+
+.game__cell {
+    border: 1px solid black;
+}
+
+.game__buttons {
+    flex: 1;
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+}
+
+.game__button {
+    flex: 1;
+    border: 1px solid black;;
+}
