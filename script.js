@@ -5,6 +5,12 @@ const Player = (name) => {
 
 const game = (() => {
 
+    // Create modal for new game options
+
+    const renderModal = () => {
+        console.log('hey')
+    }
+
     // Add ability to find a specific cell on the board
 
     const getCell = (index) => {
@@ -24,4 +30,10 @@ const game = (() => {
     for(let i = 0; i < 9; i++){
         getCell(i).cell.addEventListener("click", e = () => {mark(i)});
     }
+
+    // Make new game button active
+
+    let newGameButton = document.getElementsByClassName("game__button--new")[0];
+    newGameButton.addEventListener("click", renderModal, false);
+
 })();
