@@ -1,20 +1,12 @@
 const Player = (name) => {
     const getName = () => name;
-    let willGoNext = false;
-    let switchTurn = () => {
-        switch(willGoNext){
-            case false: 
-                willGoNext = true;
-                break;
-            case true: 
-                willGoNext = false;
-                break;
-        }
-    }
-    return { getName, switchTurn };
+    return { getName };
 } 
 
 const game = (() => {
+
+    // Make current player string editable
+    let gamePlayer = document.getElementsByClassName("game__player")[0];
 
     // Keep track of turns
     let turn = 0;
@@ -64,28 +56,25 @@ const game = (() => {
         } 
     }
 
-
-    // Create players one and two 
-
-    const createPlayers = (playerOneInput, playerTwoInput) => {
-        let playerOne = Player(playerOneInput.value);
-        playerOne.switchTurn();
-        let playerTwo = Player(playerTwoInput.value);
-    }
-
+    // The players should be visible for the whole game (but not for players to openly edit)
+    let playerOne, playerTwo
+    
     // Close modal and start game upon entering player names 
-
+    
     const startGame = () => {
-        let playerOneInput = document.getElementsByClassName('menu__player')[0];
-        let playerTwoInput = document.getElementsByClassName('menu__player')[1];
-        if(playerOneInput.value != "" && playerTwoInput.value != ""){
+        let playerOneInput = document.getElementsByClassName('menu__player')[0].value;
+        let playerTwoInput = document.getElementsByClassName('menu__player')[1].value;
+        if(playerOneInput != "" && playerTwoInput != ""){
             renderMenu();
             clearBoard();
-            createPlayers(playerOneInput, playerTwoInput);
+            playerOne = Player(playerOneInput);
+            playerTwo = Player(playerTwoInput);
+            gamePlayer.textContent = playerOne.getName() + ", this is your turn now!"
             fieldIsActive = true;
+            return {playerOne, playerTwo}
         } else {
             console.log("Player names are required!");
-        }
+        } 
     }
 
     // Add ability to find a specific cell on the board
@@ -115,6 +104,11 @@ const game = (() => {
             fieldModel[i] = currentMark;
             currentMark =  switchMark(currentMark);
             turn++;
+            if(turn % 2 == 1){
+                gamePlayer.textContent = playerTwo.getName() + ", this is your turn now!"
+            } else if(turn % 2 == 0){
+                gamePlayer.textContent = playerOne.getName() + ", this is your turn now!"
+            }
             checkIfWon(i);
         }
     }
@@ -167,7 +161,7 @@ const game = (() => {
         ){
                 console.log('won through' + getCell(i).cell.classList);
                 fieldIsActive = false;
-        } else if(turn == 9){
+        } else if(turn == 9 && fieldIsActive){
             console.log('draw');
             fieldIsActive = false;
         }
