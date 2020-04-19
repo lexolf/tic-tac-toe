@@ -30,19 +30,43 @@ const game = (() => {
 
     const renderMenu = () => {
         let menu = document.getElementsByClassName("menu")[0];
-        let menuOverlay = document.getElementsByClassName("menu-overlay")[0];
+        let overlay = document.getElementsByClassName("overlay")[0];
         switch(menu.style.display){
             case "none":
                 menu.style.display = "block";
-                menuOverlay.style.display = "block";
+                overlay.style.display = "block";
                 break
             case "block":
                 menu.style.display = "none";
-                menuOverlay.style.display = "none";
+                overlay.style.display = "none";
                 break
             default:
                 menu.style.display = "block";
-                menuOverlay.style.display = "block";
+                overlay.style.display = "block";
+        }
+    }
+
+    const renderResult = (result) => {
+        let resultDOM = document.getElementsByClassName("result")[0];
+        let overlay = document.getElementsByClassName("overlay")[0];
+        let resultContent = document.getElementsByClassName("result__content")[0];
+        switch(resultDOM.style.display){
+            case "none":
+                resultDOM.style.display = "block";
+                overlay.style.display = "block";
+                break
+            case "block":
+                resultDOM.style.display = "none";
+                overlay.style.display = "none";
+                break
+            default:
+                resultDOM.style.display = "block";
+                overlay.style.display = "block";
+        }
+        if(result === turn){
+            resultContent.textContent = "It is a draw! Another try?"
+        } else {
+            resultContent.textContent = "Congratulations! " + result + " is the winner!"
         }
     }
 
@@ -67,6 +91,7 @@ const game = (() => {
         if(playerOneInput != "" && playerTwoInput != ""){
             renderMenu();
             clearBoard();
+            currentMark = 'X';
             playerOne = Player(playerOneInput);
             playerTwo = Player(playerTwoInput);
             gamePlayer.textContent = playerOne.getName() + ", this is your turn now!"
@@ -159,10 +184,14 @@ const game = (() => {
                 || (fieldModel[6] == fieldModel[7] && fieldModel[6] == fieldModel[8])
             )
         ){
-                console.log('won through' + getCell(i).cell.classList);
+                if(fieldModel[i] == 'X'){
+                    renderResult(playerOne.getName())
+                } else if(fieldModel[i] == 'O'){
+                    renderResult(playerTwo.getName())
+                }
                 fieldIsActive = false;
         } else if(turn == 9 && fieldIsActive){
-            console.log('draw');
+            renderResult(turn)
             fieldIsActive = false;
         }
     }
@@ -182,5 +211,8 @@ const game = (() => {
 
     let startGameButton = document.getElementsByClassName("menu__start")[0];
     startGameButton.addEventListener("click", startGame, false)
+
+    let confirmResultsButton = document.getElementsByClassName("result__confirm")[0];
+    confirmResultsButton.addEventListener("click", renderResult, false)
 
 })();
