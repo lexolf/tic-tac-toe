@@ -68,6 +68,7 @@ const game = (() => {
         } else {
             resultContent.textContent = "Congratulations! " + result + " is the winner!"
         }
+        gamePlayer.textContent = 'Click/Tap "NEW GAME" button to start.'
     }
 
     // Clear board 
@@ -97,8 +98,6 @@ const game = (() => {
             gamePlayer.textContent = playerOne.getName() + ", this is your turn now!"
             fieldIsActive = true;
             return {playerOne, playerTwo}
-        } else {
-            console.log("Player names are required!");
         } 
     }
 
