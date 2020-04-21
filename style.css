@@ -1,27 +1,107 @@
+body {
+    background-color: rgb(217, 215, 255);
+}
+
 .menu {
     display: none;
     z-index: 1000;
     position: absolute;
-    width: 50%;
-    height: 20%;
+    width: 40vh;
+    height: 50vh;
     top: 50%;
     left: 50%;
     transform: translate(-50%,-50%);
-    background-color: white;
-    border: 1px solid black;
+    background-color: rgba(200, 198, 243, 0.9);
+    border-radius: 25px;
+    padding: 1em 1em;
 }
+
+.menu__container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    align-content: space-between;
+    height: 100%;
+    color: rgba(43, 43, 53, 0.9);
+}
+
+.menu__element {
+    flex: 1 1 5em;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    margin: 1em auto;
+    padding: 1em auto;
+}
+
+.menu__player {
+    background-color: rgba(161, 159, 197, 0.9);
+    outline: none;
+    border: 1px solid rgba(134, 132, 165, 0.9);
+    min-height: 15%;
+    margin: 1em 0;
+    font-size: 1em;
+}
+
+.menu__start {
+    cursor: pointer;
+    align-self: flex-end;
+    margin: 0 auto;
+    background-color: rgba(161, 159, 197, 0.9);
+    padding: 1em;
+    border: 2px solid rgba(116, 115, 141, 0.9);
+    border-radius: 10px;
+}
+
+.menu__start:hover {
+    background-color: rgba(116, 115, 141, 0.9);
+    border: 2px solid rgba(161, 159, 197, 0.9);
+}
+
 
 .result {
     display: none;
     z-index: 1000;
     position: absolute;
-    width: 50%;
-    height: 20%;
+    width: 40vh;
+    height: 50vh;
     top: 50%;
     left: 50%;
     transform: translate(-50%,-50%);
-    background-color: white;
-    border: 1px solid black;
+    background-color: rgba(200, 198, 243, 0.9);
+    border-radius: 25px;
+    padding: 1em 1em;
+}
+
+.result__container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    align-content: space-between;
+    height: 100%;
+    color: rgba(43, 43, 53, 0.9);
+}
+
+.result__content {
+    flex: 1 1 5em;
+    font-size: 1.5em;
+    margin: 0 auto;
+    padding: 1em 0;
+}
+
+.result__confirm {
+    cursor: pointer;
+    align-self: flex-end;
+    margin: 0 auto;
+    background-color: rgba(161, 159, 197, 0.9);
+    padding: 1em;
+    border: 2px solid rgba(116, 115, 141, 0.9);
+    border-radius: 10px;
+}
+
+.result__confirm:hover {
+    background-color: rgba(116, 115, 141, 0.9);
+    border: 2px solid rgba(161, 159, 197, 0.9);
 }
 
 .overlay {
@@ -46,26 +126,33 @@
     display: flex;
     flex-direction: column;
     text-align: center;
+    align-items: center;
+    margin-bottom: 3em;
 }
 
 .game__title {
     flex: 2;
-    border: 1px solid black;
+    font-family: 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-weight: 800;
+    font-size: 3em;
+    margin: 0;
+    color: rgb(59, 57, 100);
 }
 
 .game__player {
     flex: 1;
-    border: 1px solid black;
-}
-
-.game__score {
-    flex: 1;
-    border: 1px solid black;
+    background-color: rgb(193, 191, 236);
+    color: rgb(87, 84, 143);
+    margin: 2em 0;
+    padding: 1em 0;
+    width: 75%;
+    border-radius: 10px;
 }
 
 .game__container {
-    flex: 6;
+    flex: 5;
     position: relative;
+    margin: 5em 0 3em 0;
 }
 
 .game__board {
@@ -78,6 +165,9 @@
     grid-template-columns: 20vmin 20vmin 20vmin;
     text-align: center;
     font-size: 18vmin;
+    background-color: rgb(208, 188, 255);
+    padding: 2%;
+    border-radius: 5%;
 }
 
 .game__cell {
@@ -85,22 +175,58 @@
     margin: 1%;
     border-radius: 5%;
     background-color: rgb(194, 179, 137);
+    user-select: none;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-weight: 900;
+    color: rgb(43, 39, 30);
+    cursor: pointer;
+}
+
+.game__cell:hover {
+    background-color: rgb(153, 141, 108);
+    box-shadow: inset 0 0 4px #000000;
+}
+
+.top-left {
+    border-top-left-radius: 10%;
+}
+
+.top-right {
+    border-top-right-radius: 10%;
+}
+
+.bottom-left {
+    border-bottom-left-radius: 10%;
+}
+
+.bottom-right {
+    border-bottom-right-radius: 10%;
 }
 
 .game__buttons {
     flex: 1;
     display: flex;
     flex-direction: row;
-    width: 40vmin;
-    margin: 0 auto;
+    width: 60vmin;
+    margin: 6em auto 0 auto;
     text-align: center;
     align-items: center;
 }
 
 .game__button {
     flex: 1;
-    border: 1px solid black;
-    padding: 5%;
+    border: 3px solid rgb(201, 166, 206);
+    padding: 4%;
     margin: 2%;
-    border-radius: 2%;
+    border-radius: 10px;
+    user-select: none;
+    cursor: pointer;
+    background-color: rgb(231, 191, 236);
+    color: rgb(35, 29, 36);
+}
+
+.game__button:hover {
+    background-color: rgb(201, 166, 206);
+    border: 3px solid rgb(231, 191, 236);
+    color: rgb(136, 78, 146);
 }

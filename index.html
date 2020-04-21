@@ -8,31 +8,33 @@
 </head>
 <body>
     <div class="menu">
-        <form method="dialog">
-            <label for="player-one">Player 1:</label>
-            <input class="menu__player" type="text" name="player-one">
-            <br>
-            <label for="player-two">Player 2:</label>
-            <input class="menu__player" type="text" name="player-two">
-            <br>
-            <a style="cursor:pointer" class="menu__start" value="confirm">Start Game</a>
-        </form>
+        <div class="menu__container">
+            <div class="menu__element">
+                <label for="player-one">Player 1:</label>
+                <br>
+                <input class="menu__player" type="text" name="player-one">
+                <br>
+                <label for="player-two">Player 2:</label>
+                <br>
+                <input class="menu__player" type="text" name="player-two">
+            </div>
+            <a class="menu__start" value="confirm">Start Game</a>
+        </div>
     </div>
     <div class="result">
-        <div class="result__content"></div>
-        <a style="cursor:pointer" class="result__confirm" value="confirm">OK</a>
+        <div class="result__container">
+            <div class="result__content"></div>
+            <a class="result__confirm" value="confirm">OK</a>
+        </div>
     </div>
     <div class="overlay"></div>
     <div class="game">
         <div class="game__header">
-            <div class="game__title">
+            <h1 class="game__title">
                 Tic Tac Toe
-            </div>
+            </h1>
             <div class="game__player">
-                Player One, this is your turn now.
-            </div>
-            <div class="game__score">
-                3 - 1
+                Click/Tap "NEW GAME" button to start.
             </div>
         </div>
         <div class="game__container">
@@ -41,7 +43,7 @@
                 <div class="game__cell top"></div>
                 <div class="game__cell top-right"></div>
                 <div class="game__cell left"></div>
-                <div class="game__cell center">X</div>
+                <div class="game__cell center"></div>
                 <div class="game__cell right"></div>
                 <div class="game__cell bottom-left"></div>
                 <div class="game__cell bottom"></div>
@@ -50,7 +52,7 @@
         </div>
         <div class="game__buttons">
             <a class="game__button game__button--new">NEW GAME</a>
-            <a class="game__button game__button--end">END GAME</a>
+            <!-- <a class="game__button game__button--end">END GAME</a> -->
         </div>
     </div>
 </body>
