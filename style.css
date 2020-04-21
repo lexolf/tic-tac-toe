@@ -119,6 +119,7 @@ body {
     display: flex;
     flex-direction: column;
     height: 95vmin;
+    margin: 1em auto;
 }
 
 .game__header {
