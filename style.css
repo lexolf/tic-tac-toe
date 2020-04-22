@@ -118,8 +118,8 @@ body {
 .game {
     display: flex;
     flex-direction: column;
-    height: 95vmin;
-    margin: 1em auto;
+    height: 95vh;
+    /* margin: 1em auto; */
 }
 
 .game__header {
@@ -128,7 +128,7 @@ body {
     flex-direction: column;
     text-align: center;
     align-items: center;
-    margin-bottom: 3em;
+    /* margin-bottom: 3em; */
 }
 
 .game__title {
@@ -144,16 +144,16 @@ body {
     flex: 1;
     background-color: rgb(193, 191, 236);
     color: rgb(87, 84, 143);
-    margin: 2em 0;
+    margin: 0.5em 0;
     padding: 1em 0;
     width: 75%;
     border-radius: 10px;
 }
 
 .game__container {
-    flex: 5;
-    position: relative;
-    margin: 5em 0 3em 0;
+    flex: 5 0;
+    /* position: relative;
+    margin: 5em 0 3em 0; */
 }
 
 .game__board {
@@ -209,7 +209,7 @@ body {
     display: flex;
     flex-direction: row;
     width: 60vmin;
-    margin: 6em auto 0 auto;
+    margin: 0 auto 0 auto;
     text-align: center;
     align-items: center;
 }
