@@ -144,8 +144,8 @@ body {
     flex: 1;
     background-color: rgb(193, 191, 236);
     color: rgb(87, 84, 143);
-    margin: 0.5em 0;
-    padding: 1em 0;
+    /* margin: 0.5em 0; */
+    padding: 0.5em 0;
     width: 75%;
     border-radius: 10px;
 }
